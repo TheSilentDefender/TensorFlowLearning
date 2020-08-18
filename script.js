@@ -103,6 +103,9 @@ function convertToTensor(data) {
       labelMin,
     };
   });
+// Make some predictions using the model and compare them to the
+// original data
+testModel(model, data, tensorData);
 }
 /**
  * Convert the input data to tensors that we can use for machine
@@ -158,7 +161,7 @@ async function trainModel(model, inputs, labels) {
   });
 
   const batchSize = 32;
-  const epochs = 1000;
+  const epochs = 50;
 
   return await model.fit(inputs, labels, {
     batchSize,
